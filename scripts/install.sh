@@ -34,12 +34,6 @@ ln -s /u01/app/oracle/dbs /u01/app/oracle-product/12.1.0/xe/dbs
 #create DB for SID: xe
 su oracle -c "$ORACLE_HOME/bin/dbca -silent -createDatabase -templateName General_Purpose.dbc -gdbname xe.oracle.docker -sid xe -responseFile NO_VALUE -characterSet AL32UTF8 -totalMemory $DBCA_TOTAL_MEMORY -emConfiguration LOCAL -pdbAdminPassword oracle -sysPassword oracle -systemPassword oracle"
 
-#move the apex instalations files to ${ORACLE_HOME}
-echo "Move the apex 5.0.3 instalations files to oracle_home"
-mv ${ORACLE_HOME}/apex ${ORACLE_HOME}/apex_old
-mv ${INSTALL_HOME}/apex ${ORACLE_HOME}
-chown -R oracle:dba ${ORACLE_HOME}/apex
-chmod -R 664 ${ORACLE_HOME}/apex
 
 #config Apex console
 echo "Configuring Apex console"
@@ -49,4 +43,19 @@ su oracle -c 'echo -e "${ORACLE_HOME}\n\n" | $ORACLE_HOME/bin/sqlplus -S / as sy
 su oracle -c 'echo -e "ALTER USER ANONYMOUS ACCOUNT UNLOCK;" | $ORACLE_HOME/bin/sqlplus -S / as sysdba > /dev/null'
 su oracle -c 'echo -e "${ORACLE_HOME}\n\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @apxxepwd ${APEX_PASS} > /dev/null'
 
+#move the apex instalations files to ${ORACLE_HOME}
+echo "Move the apex 5.0.3 instalations files to oracle_home"
+mv ${ORACLE_HOME}/apex ${ORACLE_HOME}/apex_old
+mv ${INSTALL_HOME}/apex ${ORACLE_HOME}
+chown -R oracle:dba ${ORACLE_HOME}/apex
+chmod -R 775 ${ORACLE_HOME}/apex
+
+#update the Apex console
+echo "Update Apex console"
+cd $ORACLE_HOME/apex
+su oracle -c '$ORACLE_HOME/bin/sqlplus -S / as sysdba @$ORACLE_HOME/apex/apexins.sql SYSAUX SYSAUX TEMP /i/ > /dev/null'
+su oracle -c '$ORACLE_HOME/bin/sqlplus -S / as sysdba @$ORACLE_HOME/apex/apxldimg.sql $ORACLE_HOME > /dev/null' 
+
 rm /scripts/install.sh
+rm $INSTALL_HOME/apex_5.0.3_1.zip
+rm $INSTALL_HOME/apex_5.0.3_2.zip

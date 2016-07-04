@@ -1,8 +1,7 @@
 ##########################################################################
 #  Author   M. Ritschel 
 #           Trivadis GmbH Hamburg
-#  Created: 28.06.2016
-#
+#  Created: 28.06.2016 
 #  Base-information 
 #  ------------------------
 # This Image based on https://github.com/MaksymBilenko/docker-oracle-12c
@@ -45,7 +44,8 @@ RUN apt-get update  && \
 
 # Copy the installation files
 ADD software $INSTALL_HOME
-RUN unzip $INSTALL_HOME/apex_5.0.3.zip -d $INSTALL_HOME/apex
+RUN unzip $INSTALL_HOME/apex_5.0.3_1.zip -d $INSTALL_HOME
+RUN unzip $INSTALL_HOME/apex_5.0.3_2.zip -d $INSTALL_HOME
 RUN chmod -R 777 $INSTALL_HOME/*
 RUN chown -R oracle:dba $INSTALL_HOME/* 
 
@@ -63,4 +63,4 @@ EXPOSE 8080
 ENTRYPOINT ["/scripts/startup.sh"]
 
 # Define default command.
-CMD ["bash"]
+CMD ["/etc/bash"]
