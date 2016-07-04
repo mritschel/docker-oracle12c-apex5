@@ -1,5 +1,4 @@
-# Oracle Apex 5.0.3 Demo 
-## You can use jenkins for oracle PL/SQL unit-tests
+# Oracle database 12c Release 1 with Apex 5.0.3 
 --------------------------------------------------------
 
 ## Content
