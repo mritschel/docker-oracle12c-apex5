@@ -51,7 +51,7 @@ RUN chown -R oracle:dba $INSTALL_HOME/*
 
 # Copy the installation scripts
 ADD scripts /scripts
-RUN chmod +x /scripts/*
+RUN chmod 777 /scripts/*
 RUN /scripts/install.sh
 
 
@@ -60,7 +60,7 @@ EXPOSE 1521
 EXPOSE 8080
 
 # Startup script to start the database in container
-ENTRYPOINT ["/scripts/startup.sh"]
+ENTRYPOINT ["/scripts/entrypoint.sh"]
 
 # Define default command.
-CMD ["/etc/bash"]
+CMD ["bash"]
