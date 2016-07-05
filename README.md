@@ -1,4 +1,4 @@
-# Oracle database 12c Release 1 with Apex 5.0.3 
+# Oracle database 12c release 1 with Apex 5.0.3 
 --------------------------------------------------------
 
 ## Content
@@ -7,7 +7,7 @@ This Dockerfile is based on Maksym Bilenko's work for [sath89/oracle-12c](https:
 
 * Ubuntu 14.04.3 LTS
 * Oracle Database 12.1.0.2 Standard Edition 2
-	* Apex 5.0.3
+	* Apex 5.0.3 
 	* Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
 	
 Pull the latest trusted build from [here](https://hub.docker.com/r/mritschel/oracle12c-apex/).
@@ -80,7 +80,7 @@ Property | Value
 -------- | -----
 Workspace | INTERNAL
 User | ADMIN
-Password | Oracle12c!
+Password | 0Racle$
 
 ### Database Connections
 
