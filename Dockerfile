@@ -47,7 +47,7 @@ RUN apt-get update  && \
 
 # Copy the installation files
 ADD software $INSTALL_HOME
-RUN unzip $INSTALL_HOME/apex_5.0.3_1.zip -d $INSTALL_HOME
+RUN unzip $INSTALL_HOME/apex_5.0.3_1.zip -d $INSTALL_HOME 
 RUN unzip $INSTALL_HOME/apex_5.0.3_2.zip -d $INSTALL_HOME
 RUN chmod -R 777 $INSTALL_HOME/*
 RUN chown -R oracle:dba $INSTALL_HOME/* 
