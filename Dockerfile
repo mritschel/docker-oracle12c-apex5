@@ -28,6 +28,9 @@ ENV PASS=oracle
 ENV INSTALL_HOME=/tmp/software 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
+# Fix sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 # Installing the required software 
 RUN apt-get update  && \ 
     apt-get upgrade -y && \
