@@ -68,7 +68,7 @@ echo "Set NAMES.DEFAULT_DOMAIN for the sqlnet..."
 # sqlnet modify 
 STRSEARCH="NAMES.DEFAULT_DOMAIN"
 STRREPLACE="#NAMES.DEFAULT_DOMAIN"
-find "${ORACLE_BASE}/network/admin" -type f -name '*.ora' -print | while read i
+find "${ORACLE_HOME}/network/admin" -type f -name '*.ora' -print | while read i
 do
    cp "$i" "$i.tmp"
    if [ -f "$i.tmp" ]; then
