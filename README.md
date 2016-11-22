@@ -3,12 +3,14 @@
 
 ## Content
 
-This Dockerfile is based on Maksym Bilenko's work for [sath89/oracle-12c](https://hub.docker.com/r/sath89/oracle-12c/). The resulting image contains the following:
+This Dockerfile is based on my work for [https://hub.docker.com/r/mritschel/oraclebase]. The version is based on the image with Oracle Enterprise Linux 7.1 and Oracle Database 12c R1.
+The resulting image contains the following:
 
-* Ubuntu 14.04.3 LTS
-* Oracle Database 12.1.0.2 Standard Edition 2
+* Oracle Enterprise Linux 7.1
+* Oracle Database 12.1.0.2 Enterprise Edition 
 	* Apex 5.0.3 
 	* Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+	* Perl 5.14.1
 	
 Pull the latest trusted build from [here](https://hub.docker.com/r/mritschel/oracle12c-apex/).
 
@@ -100,6 +102,11 @@ User | Password
 system | oracle
 sys | oracle
  
+Linux
+User | Password 
+-------- | -----
+root | geheim
+oracle | geheim
 
 
 ## Backup
