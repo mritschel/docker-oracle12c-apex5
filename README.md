@@ -102,7 +102,7 @@ User | Password
 system | oracle
 sys | oracle
  
-Linux
+## Linux
 User | Password 
 -------- | -----
 root | geheim

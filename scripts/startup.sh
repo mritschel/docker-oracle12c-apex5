@@ -5,7 +5,7 @@
 #  Created: 28.09.2016 
 #  Base-information 
 #  ------------------------
-# Startup-Script for the Trivadis TVD-ConfMan docker images
+# Startup-Script for the Trivadis Jenkins docker images
 #  
 ##########################################################################
 set -e
