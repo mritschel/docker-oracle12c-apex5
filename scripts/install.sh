@@ -78,4 +78,4 @@ done
 # Clearing
 echo "Clearing"
 rm -f /scripts/install.sh
-rm -fr $INSTALL_HOME/* 
+
