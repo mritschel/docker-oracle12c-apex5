@@ -12,7 +12,7 @@ The resulting image contains the following:
 	* Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
 	* Perl 5.14.1
 	
-Pull the latest trusted build from [here](https://hub.docker.com/r/mritschel/oracle12c-apex/).
+Pull the latest trusted build from [here](https://hub.docker.com/r/mritschel/docker-oracle12c-apex5).
 
 
 ## Installation
@@ -23,7 +23,7 @@ Complete the following steps to create a new container:
 
 1. Pull the image
 
-		docker pull mritschel/oracle12c-apex
+		docker pull mritschel/docker-oracle12c-apex5
 
 2. Create the container
 
