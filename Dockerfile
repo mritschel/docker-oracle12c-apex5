@@ -34,7 +34,7 @@ ENV SCRIPTS_HOME=$ORACLE_BASE/scripts
 
 # Installing the required software 
 USER root
-RUN yum -y install unzip wget zip gcc ksh && \
+RUN yum -y install unzip wget zip gcc ksh sudo && \
     yum clean all
     
 # Copy the installation files
