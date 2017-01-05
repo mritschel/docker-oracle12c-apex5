@@ -15,9 +15,9 @@ fi
 
 echo_yellow  "Starting listener and database"
 echo_yellow "---------------------------------------------------------------------------"
-$SCRIPTS_HOME/startup.sh database
 echo_yellow "Database and Web management console initialized. Please visit"
-echo_yellow "   - http://localhost:8080/em"
+echo_yellow "   - http://localhost:5500/em"
 echo_yellow "   - http://localhost:8080/apex"
 echo_yellow "\n"
 echo_yellow "---------------------------------------------------------------------------"
+$SCRIPTS_HOME/startup.sh database

@@ -27,9 +27,11 @@ Complete the following steps to create a new container:
 
 2. Create the container
 
-		docker run -d -p 8080:8080 -p 1521:1521 -p 9090:9090 -h xe --name oracle-apex mritschel/oracle12c-apex
+		docker run -d -p 8080:8080 -p 1521:1521 -p 5500:5500 -h xe --name oracle-apex mritschel/oracle12c-apex
 		
-3. wait around **15 minutes** until the Oracle Database and APEX is created. Check logs with ```docker logs oracle-apex```. The container is ready to use when the last line in the log is ```Oracle started Successfully ! ;)```. The container stops if an error occurs. Check the logs to determine how to proceed.
+3. wait around **5 minutes** until the Oracle Database and APEX is created. Check logs with ```docker logs oracle-apex```. 
+   The container is ready to uAll entries from the Alert.log and Listener.log are entered into the container logfile.
+   The container stops if an error occurs. Check the logs to determine how to proceed.
 
 
 ### Options
@@ -55,7 +57,7 @@ SCRIPTS_HOME | ```/u01/app/oracle/scripts``` | Scripts directory
 Here's an example run call amending the SYS/SYSTEM password and DBCA memory settings:
 
 ```
-docker run -e PASS=manager -e DBCA_TOTAL_MEMORY=1536 -d -p 8080:8080 -p 1521:1521 -p 9090:9090 -h xe --name oraclebasis mritschel/oracle12c-apex
+docker run -e PASS=manager -e DBCA_TOTAL_MEMORY=1536 -d -p 8080:8080 -p 1521:1521 -p 5500:5500 -h xe --name oraclebasis mritschel/oracle12c-apex
 ```
 
 #### Volumes
@@ -63,14 +65,14 @@ docker run -e PASS=manager -e DBCA_TOTAL_MEMORY=1536 -d -p 8080:8080 -p 1521:152
 The image defines a volume for ```/apex```. You may map this volume for the apex_HOME. Here's an example using a named volume ```/apex```:
 
 ```
-docker run -v /apex:/apex -d -p 8080:8080 -p 1521:1521 -p 9090:9090 -h xe --name oracle-apex mritschel/oracle12c-apex
+docker run -v /apex:/apex -d -p 8080:8080 -p 1521:1521 -p 5500:5500 -h xe --name oracle-apex mritschel/oracle12c-apex
 ```
 
 ## Access
 
 ### Enterprise Manager Database Express 12c
 
-[http://localhost:8080/em/](http://localhost:8080/em/)
+[http://localhost:5500/em/](http://localhost:5500/em/)
 
 
 ### Access APEX
@@ -81,7 +83,7 @@ Property | Value
 -------- | -----
 Workspace | INTERNAL
 User | ADMIN
-Password | 0Racle$
+Password | Manager_12C
 
 ### Database Connections
 
