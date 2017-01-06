@@ -27,7 +27,7 @@ Complete the following steps to create a new container:
 
 2. Create the container
 
-		docker run -d -p 8080:8080 -p 1521:1521 -p 5500:5500 -h xe --name oracle-apex mritschel/oracle12c-apex
+		docker run -d -p 8080:8080 -p 1521:1521 -h xe --name oracle-apex mritschel/oracle12c-apex
 		
 3. wait around **5 minutes** until the Oracle Database and APEX is created. Check logs with ```docker logs oracle-apex```. 
    The container is ready to uAll entries from the Alert.log and Listener.log are entered into the container logfile.
@@ -60,19 +60,8 @@ Here's an example run call amending the SYS/SYSTEM password and DBCA memory sett
 docker run -e PASS=manager -e DBCA_TOTAL_MEMORY=1536 -d -p 8080:8080 -p 1521:1521 -p 5500:5500 -h xe --name oraclebasis mritschel/oracle12c-apex
 ```
 
-#### Volumes
-
-The image defines a volume for ```/apex```. You may map this volume for the apex_HOME. Here's an example using a named volume ```/apex```:
-
-```
-docker run -v /apex:/apex -d -p 8080:8080 -p 1521:1521 -p 5500:5500 -h xe --name oracle-apex mritschel/oracle12c-apex
-```
 
 ## Access
-
-### Enterprise Manager Database Express 12c
-
-[http://localhost:5500/em/](http://localhost:5500/em/)
 
 
 ### Access APEX

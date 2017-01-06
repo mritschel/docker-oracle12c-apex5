@@ -46,19 +46,19 @@ cp -r $INSTALL_HOME/apex $ORACLE_HOME
 
 echo "Install and Configuration Apex console"
 cd $ORACLE_HOME/apex 
-echo -e "SYSAUX\n SYSAUX\n TEMP\n /i/" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @apexins 
+echo -e "SYSAUX\n SYSAUX\n TEMP\n /i/" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @apexins > /dev/null
 
 echo "Install Apex (apxldimg)"
-echo -e "\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @apxldimg $ORACLE_HOME 
+echo -e "\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @apxldimg $ORACLE_HOME > /dev/null
 
 echo "ALTER USER ANONYMOUS"
-echo -e "ALTER USER ANONYMOUS ACCOUNT UNLOCK;\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba 
+echo -e "ALTER USER ANONYMOUS ACCOUNT UNLOCK;\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba > /dev/null
 
 echo "Change Apex Password (apxxepwd)"
-echo -e "\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @$SCRIPTS_HOME/upd_apexpwd.sql
+echo -e "\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @$SCRIPTS_HOME/upd_apexpwd.sql > /dev/null
  
 echo "Set Apex Port"
-echo -e "EXEC DBMS_XDB.sethttpport(8080);\n\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba  
+echo -e "EXEC DBMS_XDB.sethttpport(8080);\n\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba > /dev/null
 
 
 echo "Set NAMES.DEFAULT_DOMAIN for the sqlnet..."
